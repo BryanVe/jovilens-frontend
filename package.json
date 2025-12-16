@@ -14,10 +14,17 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@fontsource-variable/inter": "^5.2.8",
+    "@fontsource/inter": "^5.2.8",
+    "@fortawesome/fontawesome-svg-core": "^7.1.0",
+    "@fortawesome/free-regular-svg-icons": "^7.1.0",
+    "@fortawesome/free-solid-svg-icons": "^7.1.0",
+    "@fortawesome/react-fontawesome": "^3.1.1",
     "@mantine/core": "^8.3.10",
     "@mantine/form": "^8.3.10",
     "@mantine/hooks": "^8.3.10",
     "@mantine/notifications": "^8.3.10",
+    "@phosphor-icons/react": "^2.1.10",
     "mantine-form-zod-resolver": "^1.3.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
