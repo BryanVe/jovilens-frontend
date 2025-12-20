@@ -1,0 +1,4 @@
+.mantine-NavLink-root {
+  border-radius: var(--mantine-radius-sm);
+  font-weight: 600;
+}
