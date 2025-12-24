@@ -1,4 +1,4 @@
-import { faGear, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
+import { faGear, faRightFromBracket, faUsersGear } from '@fortawesome/free-solid-svg-icons'
 import { Stack } from '@mantine/core'
 import { MenuItems, type TMenuItem } from './menu-items'
 import { useNavigate } from 'react-router'
@@ -12,6 +12,12 @@ export const SecondaryItems = () => {
       label: 'Configuración',
       icon: faGear,
       to: '/settings',
+    },
+    {
+      id: 'users',
+      label: 'Usuarios',
+      icon: faUsersGear,
+      to: '/users',
     },
     {
       id: 'logout',
