@@ -1,4 +1,4 @@
-import { useBreadcrumbs } from '../../hooks'
+import { useBreadcrumbs } from '@/hooks'
 
 export const Users = () => {
   useBreadcrumbs([

@@ -1,5 +1,5 @@
 import { createContext } from 'react'
-import type { TBreadcrumbsItem } from '../components'
+import type { TBreadcrumbsItem } from '@/components'
 
 type TBreadcrumbsContext = {
   setBreadcrumbsItems: React.Dispatch<React.SetStateAction<TBreadcrumbsItem[]>>

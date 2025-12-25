@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react'
-import { BreadcrumbsContext } from '../contexts'
-import type { TBreadcrumbsItem } from '../components'
+import { BreadcrumbsContext } from '@/contexts'
+import type { TBreadcrumbsItem } from '@/components'
 
 export const useBreadcrumbs = (items: TBreadcrumbsItem[]) => {
   const { setBreadcrumbsItems } = useContext(BreadcrumbsContext)

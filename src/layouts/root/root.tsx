@@ -3,9 +3,9 @@ import { useDisclosure } from '@mantine/hooks'
 import { Outlet } from 'react-router'
 import { Sidebar } from './components'
 import './style.css'
-import { Breadcrumbs, type TBreadcrumbsItem } from '../../components'
+import { Breadcrumbs, type TBreadcrumbsItem } from '@/components'
 import { useState } from 'react'
-import { BreadcrumbsContext } from '../../contexts'
+import { BreadcrumbsContext } from '@/contexts'
 
 const NAVBAR_WIDTH = 300
 
