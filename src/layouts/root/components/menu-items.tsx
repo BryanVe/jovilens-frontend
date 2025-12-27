@@ -60,7 +60,7 @@ export const MenuItems = ({ items }: TMenuItemsProps) => {
         to={item.to}
         styles={(theme, props) => ({
           root: {
-            color: props.active ? theme.colors.blue[6] : theme.colors.gray[7],
+            color: props.active ? theme.colors.blue[6] : theme.colors.gray[8],
           },
         })}
       />
@@ -72,7 +72,7 @@ export const MenuItems = ({ items }: TMenuItemsProps) => {
         onClick={item.onClick}
         styles={(theme) => ({
           root: {
-            color: theme.colors.gray[7],
+            color: theme.colors.gray[8],
           },
         })}
       />
@@ -88,7 +88,7 @@ export const MenuItems = ({ items }: TMenuItemsProps) => {
         }
         styles={(theme) => ({
           root: {
-            color: theme.colors.gray[7],
+            color: theme.colors.gray[8],
           },
         })}
       >
@@ -106,7 +106,7 @@ export const MenuItems = ({ items }: TMenuItemsProps) => {
               label={childItem.label}
               styles={(theme, props) => ({
                 root: {
-                  color: props.active ? theme.colors.blue[6] : theme.colors.gray[7],
+                  color: props.active ? theme.colors.blue[6] : theme.colors.gray[8],
                 },
               })}
             />

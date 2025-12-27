@@ -1,4 +1,4 @@
-import { useBreadcrumbs } from '@/hooks'
+import { useBreadcrumbs } from '@/layouts/root/hooks'
 
 export const Settings = () => {
   useBreadcrumbs([

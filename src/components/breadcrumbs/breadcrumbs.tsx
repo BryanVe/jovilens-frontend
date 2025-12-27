@@ -1,15 +1,8 @@
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Anchor, Text, Breadcrumbs as Breadcrumbs_ } from '@mantine/core'
-
-export type TBreadcrumbsItem = {
-  label: string
-  to?: string
-}
-
-export type TBreadcrumbsProps = {
-  items: TBreadcrumbsItem[]
-}
+import { Link } from 'react-router'
+import type { TBreadcrumbsProps } from './types'
 
 export const Breadcrumbs = ({ items }: TBreadcrumbsProps) => {
   if (items.length === 0) return null
@@ -18,11 +11,11 @@ export const Breadcrumbs = ({ items }: TBreadcrumbsProps) => {
     <Breadcrumbs_ separator={<FontAwesomeIcon size="2xs" icon={faChevronRight} />}>
       {items.map((item, index) =>
         item.to ? (
-          <Anchor key={index} size="sm" href={item.to} fw={600}>
+          <Anchor component={Link} key={index} size="sm" to={item.to} fw={600}>
             {item.label}
           </Anchor>
         ) : (
-          <Text key={index} size="sm" c="gray.8" fw={600}>
+          <Text key={index} size="sm" fw={600}>
             {item.label}
           </Text>
         ),

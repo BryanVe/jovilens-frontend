@@ -1,11 +1,11 @@
-import { AppShell, Burger, Divider, Flex, Group } from '@mantine/core'
+import { AppShell, Burger, Divider, Flex, Group, Title } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import { Outlet } from 'react-router'
 import { Sidebar } from './components'
 import './style.css'
 import { Breadcrumbs, type TBreadcrumbsItem } from '@/components'
 import { useState } from 'react'
-import { BreadcrumbsContext } from '@/contexts'
+import { BreadcrumbsContext } from './contexts'
 
 const NAVBAR_WIDTH = 300
 
@@ -16,7 +16,7 @@ export const Root = () => {
   return (
     <BreadcrumbsContext.Provider value={{ setBreadcrumbsItems }}>
       <AppShell
-        padding="md"
+        padding="xl"
         header={{ height: 60 }}
         navbar={{
           width: NAVBAR_WIDTH,
@@ -26,12 +26,14 @@ export const Root = () => {
       >
         <AppShell.Header>
           <Flex h="100%" gap={0}>
-            <Group w={NAVBAR_WIDTH - 1}>
+            <Group w={NAVBAR_WIDTH - 1} px="md">
               <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
-              <div>Logo</div>
+              <Title order={2} c="blue">
+                Jovilens
+              </Title>
             </Group>
             <Divider orientation="vertical" />
-            <Group flex={1} px="lg">
+            <Group flex={1} px="xl">
               <Breadcrumbs items={breadcrumbsItems} />
             </Group>
           </Flex>
@@ -39,7 +41,7 @@ export const Root = () => {
         <AppShell.Navbar>
           <Sidebar />
         </AppShell.Navbar>
-        <AppShell.Main>
+        <AppShell.Main bg="gray.0">
           <Outlet />
         </AppShell.Main>
       </AppShell>

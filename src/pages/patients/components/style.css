@@ -1,0 +1,11 @@
+.mantine-Select-input {
+  color: var(--mantine-color-gray-8);
+}
+
+.mantine-Pagination-control {
+  color: var(--mantine-color-gray-8);
+
+  &[data-active='true'] {
+    color: var(--mantine-color-white);
+  }
+}

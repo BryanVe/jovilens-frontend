@@ -7,7 +7,9 @@ export const MyProfile = () => {
       <Group>
         <Avatar name="Bryan Vera" color="blue" />
         <Stack flex={1} gap={0}>
-          <Text fw={600}>Bryan Vera</Text>
+          <Text fw={600} c="gray.8">
+            Bryan Vera
+          </Text>
           <Text w={rem(213)} truncate="end" size="sm" c="gray.6">
             bryan.ve.bv@gmail.com
           </Text>
