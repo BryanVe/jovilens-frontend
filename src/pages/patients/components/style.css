@@ -9,3 +9,8 @@
     color: var(--mantine-color-white);
   }
 }
+
+.mantine-Drawer-content {
+  display: flex !important;
+  flex-direction: column;
+}
