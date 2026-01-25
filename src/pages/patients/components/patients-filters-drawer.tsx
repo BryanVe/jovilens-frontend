@@ -9,10 +9,19 @@ import {
   Stack,
   Text,
   ThemeIcon,
+  type TextInputProps,
 } from '@mantine/core'
 import { faFilter, faRotateRight } from '@fortawesome/free-solid-svg-icons'
 import { DatePickerInput } from '@mantine/dates'
 import type { TPatientsFiltersDrawerProps } from './types'
+
+const commonLabelProps: TextInputProps['labelProps'] = {
+  tt: 'uppercase',
+  fw: 600,
+  lts: 0.1,
+  fz: 'xs',
+  c: 'gray',
+}
 
 export const PatientsFiltersDrawer = (props: TPatientsFiltersDrawerProps) => {
   const { opened, onClose } = props
@@ -102,22 +111,22 @@ export const PatientsFiltersDrawer = (props: TPatientsFiltersDrawerProps) => {
               min={0}
               max={150}
               placeholder="0"
-              label={
-                <Text fw={600} c="gray" size="xs" tt="uppercase" lts={0.1}>
-                  Rango mínimo
-                </Text>
-              }
+              label="Rango mínimo"
+              labelProps={{
+                tt: 'uppercase',
+                fw: 600,
+                lts: 0.1,
+                fz: 'xs',
+                c: 'gray',
+              }}
             />
             <NumberInput
               flex={1}
               min={0}
               max={150}
               placeholder="100"
-              label={
-                <Text fw={600} c="gray" size="xs" tt="uppercase" lts={0.1}>
-                  Rango máximo
-                </Text>
-              }
+              label="Rango máximo"
+              labelProps={commonLabelProps}
             />
           </Group>
         </Stack>
@@ -130,20 +139,14 @@ export const PatientsFiltersDrawer = (props: TPatientsFiltersDrawerProps) => {
             <DatePickerInput
               flex={1}
               defaultValue={new Date()}
-              label={
-                <Text fw={600} c="gray" size="xs" tt="uppercase" lts={0.1}>
-                  Desde
-                </Text>
-              }
+              label="Desde"
+              labelProps={commonLabelProps}
             />
             <DatePickerInput
               flex={1}
               defaultValue={new Date()}
-              label={
-                <Text fw={600} c="gray" size="xs" tt="uppercase" lts={0.1}>
-                  Hasta
-                </Text>
-              }
+              label="Hasta"
+              labelProps={commonLabelProps}
             />
           </Group>
         </Stack>

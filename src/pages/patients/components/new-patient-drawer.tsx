@@ -14,6 +14,7 @@ import {
   Text,
   TextInput,
   ThemeIcon,
+  type TextInputProps,
 } from '@mantine/core'
 import {
   faArrowUpRightFromSquare,
@@ -24,6 +25,14 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { DatePickerInput } from '@mantine/dates'
 import type { TNewPatientDrawerProps } from './types'
+
+const commonLabelProps: TextInputProps['labelProps'] = {
+  tt: 'uppercase',
+  fw: 600,
+  lts: 0.1,
+  fz: 'xs',
+  c: 'gray',
+}
 
 const genderOptions = ['Masculino', 'Femenino', 'Otro']
 
@@ -76,11 +85,8 @@ export const NewPatientDrawer = (props: TNewPatientDrawerProps) => {
                 hideControls
                 flex={1}
                 placeholder="70654321"
-                label={
-                  <Text fw={700} c="gray" size="xs" tt="uppercase" lts={0.1}>
-                    Número de Documento
-                  </Text>
-                }
+                label="Número de Documento"
+                labelProps={commonLabelProps}
               />
               <Button leftSection={<FontAwesomeIcon icon={faMagnifyingGlass} />}>Buscar</Button>
             </Group>
@@ -107,32 +113,23 @@ export const NewPatientDrawer = (props: TNewPatientDrawerProps) => {
             <TextInput
               variant="filled"
               placeholder="Juan Carlos"
-              label={
-                <Text fw={700} c="gray" size="xs" tt="uppercase" lts={0.1}>
-                  Nombres
-                </Text>
-              }
+              label="Nombres"
+              labelProps={commonLabelProps}
             />
             <Group>
               <TextInput
                 flex={1}
                 variant="filled"
                 placeholder="Lopez"
-                label={
-                  <Text fw={700} c="gray" size="xs" tt="uppercase" lts={0.1}>
-                    Apellido Paterno
-                  </Text>
-                }
+                label="Apellido Paterno"
+                labelProps={commonLabelProps}
               />
               <TextInput
                 flex={1}
                 variant="filled"
                 placeholder="Vargas"
-                label={
-                  <Text fw={700} c="gray" size="xs" tt="uppercase" lts={0.1}>
-                    Apellido Materno
-                  </Text>
-                }
+                label="Apellido Materno"
+                labelProps={commonLabelProps}
               />
             </Group>
           </Stack>
@@ -148,21 +145,15 @@ export const NewPatientDrawer = (props: TNewPatientDrawerProps) => {
               hideControls
               flex={1}
               placeholder="983456789"
-              label={
-                <Text fw={700} c="gray" size="xs" tt="uppercase" lts={0.1}>
-                  Teléfono
-                </Text>
-              }
+              label="Teléfono"
+              labelProps={commonLabelProps}
             />
             <TextInput
               variant="filled"
               flex={1}
               placeholder="juan@gmail.com"
-              label={
-                <Text fw={700} c="gray" size="xs" tt="uppercase" lts={0.1}>
-                  Email
-                </Text>
-              }
+              label="Correo Electrónico"
+              labelProps={commonLabelProps}
             />
           </Group>
         </Stack>
@@ -176,11 +167,8 @@ export const NewPatientDrawer = (props: TNewPatientDrawerProps) => {
               variant="filled"
               flex={1}
               defaultValue={new Date()}
-              label={
-                <Text fw={600} c="gray" size="xs" tt="uppercase" lts={0.1}>
-                  Fecha de Nacimiento
-                </Text>
-              }
+              label="Fecha de Nacimiento"
+              labelProps={commonLabelProps}
             />
             <Select
               variant="filled"
@@ -188,11 +176,8 @@ export const NewPatientDrawer = (props: TNewPatientDrawerProps) => {
               defaultValue="Masculino"
               data={genderOptions}
               fw={600}
-              label={
-                <Text fw={700} c="gray" size="xs" tt="uppercase" lts={0.1}>
-                  Género
-                </Text>
-              }
+              label="Género"
+              labelProps={commonLabelProps}
             />
           </Group>
         </Stack>

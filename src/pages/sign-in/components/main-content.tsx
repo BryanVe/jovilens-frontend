@@ -1,12 +1,4 @@
-import {
-  Button,
-  Center,
-  PasswordInput,
-  rem,
-  Stack,
-  TextInput,
-  type TextInputProps,
-} from '@mantine/core'
+import { Button, Center, PasswordInput, Stack, TextInput, type TextInputProps } from '@mantine/core'
 import { useSignIn } from '../hooks'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
@@ -15,9 +7,9 @@ import { Header } from './header'
 const commonLabelProps: TextInputProps['labelProps'] = {
   tt: 'uppercase',
   fw: 600,
-  style: {
-    fontSize: rem(12),
-  },
+  lts: 0.1,
+  fz: 'xs',
+  c: 'gray',
 }
 
 export const MainContent = () => {
@@ -39,6 +31,7 @@ export const MainContent = () => {
         <form onSubmit={signIn}>
           <Stack>
             <TextInput
+              variant="filled"
               autoCapitalize="none"
               labelProps={commonLabelProps}
               label="Correo electrónico"
@@ -47,6 +40,7 @@ export const MainContent = () => {
               {...credentialsForm.getInputProps('username')}
             />
             <PasswordInput
+              variant="filled"
               labelProps={commonLabelProps}
               label="Contraseña"
               placeholder="Introduce tu contraseña"

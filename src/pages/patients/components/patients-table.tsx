@@ -7,14 +7,22 @@ import {
   Card,
   Divider,
   Group,
+  Menu,
   Pagination,
+  rem,
   Select,
   Text,
   TextInput,
 } from '@mantine/core'
 import type { TPatientTableRow } from '../types'
 import { useDisclosure, usePagination } from '@mantine/hooks'
-import { faEllipsisV, faFilter, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import {
+  faArrowUpRightFromSquare,
+  faCirclePlus,
+  faEllipsisV,
+  faFilter,
+  faMagnifyingGlass,
+} from '@fortawesome/free-solid-svg-icons'
 import './style.css'
 import { PatientsFiltersDrawer } from './patients-filters-drawer'
 
@@ -139,9 +147,36 @@ const columns: TTableColumn<TPatientTableRow>[] = [
   {
     id: 'actions',
     render: () => (
-      <ActionIcon variant="subtle" color="gray" size="lg" radius="xl">
-        <FontAwesomeIcon icon={faEllipsisV} />
-      </ActionIcon>
+      <Menu
+        trigger="hover"
+        shadow="md"
+        width={200}
+        position="right-end"
+        withArrow
+        arrowPosition="center"
+        arrowSize={12}
+      >
+        <Menu.Target>
+          <ActionIcon variant="light" color="gray" size="lg" radius="xl">
+            <FontAwesomeIcon icon={faEllipsisV} />
+          </ActionIcon>
+        </Menu.Target>
+        <Menu.Dropdown>
+          <Menu.Label fw={700} tt="uppercase" lts={0.3} fz={rem(11)}>
+            Acciones
+          </Menu.Label>
+          <Menu.Item color="blue" fw={600} leftSection={<FontAwesomeIcon icon={faCirclePlus} />}>
+            Nueva consulta
+          </Menu.Item>
+          <Menu.Item
+            color="gray.9"
+            fw={600}
+            leftSection={<FontAwesomeIcon icon={faArrowUpRightFromSquare} />}
+          >
+            Ver paciente
+          </Menu.Item>
+        </Menu.Dropdown>
+      </Menu>
     ),
   },
 ]
