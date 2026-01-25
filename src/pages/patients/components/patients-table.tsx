@@ -6,27 +6,17 @@ import {
   Button,
   Card,
   Divider,
-  Drawer,
   Group,
-  NumberInput,
   Pagination,
-  Radio,
   Select,
-  Stack,
   Text,
   TextInput,
-  ThemeIcon,
 } from '@mantine/core'
 import type { TPatientTableRow } from '../types'
 import { useDisclosure, usePagination } from '@mantine/hooks'
-import {
-  faEllipsisV,
-  faFilter,
-  faMagnifyingGlass,
-  faRotateRight,
-} from '@fortawesome/free-solid-svg-icons'
-import { DatePickerInput } from '@mantine/dates'
+import { faEllipsisV, faFilter, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import './style.css'
+import { PatientsFiltersDrawer } from './patients-filters-drawer'
 
 const orderOptions = [
   'Apellido (A-Z)',
@@ -158,8 +148,10 @@ const columns: TTableColumn<TPatientTableRow>[] = [
 
 export const PatientsTable = () => {
   const pagination = usePagination({ total: patients.length })
-  const [filtersDrawerOpened, { open: openFiltersDrawer, close: closeFiltersDrawer }] =
-    useDisclosure(false)
+  const [
+    patientsFiltersDrawerOpened,
+    { open: openPatientsFiltersDrawer, close: closePatientsFiltersDrawer },
+  ] = useDisclosure(false)
 
   return (
     <>
@@ -178,7 +170,7 @@ export const PatientsTable = () => {
                 variant="default"
                 c="gray.8"
                 leftSection={<FontAwesomeIcon icon={faFilter} />}
-                onClick={openFiltersDrawer}
+                onClick={openPatientsFiltersDrawer}
               >
                 Filtros
               </Button>
@@ -221,145 +213,10 @@ export const PatientsTable = () => {
           </Group>
         </Card.Section>
       </Card>
-      <Drawer
-        padding="lg"
-        opened={filtersDrawerOpened}
-        position="right"
-        onClose={closeFiltersDrawer}
-        styles={{
-          body: {
-            display: 'flex',
-            flexDirection: 'column',
-            flexGrow: 1,
-            position: 'relative',
-            overflowY: 'hidden',
-          },
-        }}
-        title={
-          <Group>
-            <ThemeIcon variant="transparent">
-              <FontAwesomeIcon icon={faFilter} />
-            </ThemeIcon>
-            <Text size="xl" fw={600}>
-              Filtros
-            </Text>
-          </Group>
-        }
-      >
-        <Divider mx="-lg" pos="sticky" top={0} />
-        <Stack
-          py="lg"
-          mx="-lg"
-          px="lg"
-          gap={0}
-          flex={1}
-          style={{ overflowY: 'auto', overflowX: 'hidden' }}
-        >
-          <Stack>
-            <Radio.Group
-              name="favoriteFramework"
-              label={
-                <Text fw={600} size="md">
-                  Estado de consultas
-                </Text>
-              }
-            >
-              <Stack mt="xs">
-                <Radio
-                  value="all"
-                  label={
-                    <Text fw={500} size="sm">
-                      Todos
-                    </Text>
-                  }
-                  description="Mostrar todos los pacientes"
-                />
-                <Radio
-                  value="with-consultations"
-                  label={
-                    <Text fw={500} size="sm">
-                      Con consultas
-                    </Text>
-                  }
-                  description="Pacientes con historial médico"
-                />
-                <Radio
-                  value="without-consultations"
-                  label={
-                    <Text fw={500} size="sm">
-                      Sin consultas
-                    </Text>
-                  }
-                  description="Solo pacientes registrados"
-                />
-              </Stack>
-            </Radio.Group>
-          </Stack>
-          <Divider mx="-lg" my="lg" />
-          <Stack gap="xs">
-            <Text fw={600} size="md">
-              Edad
-            </Text>
-            <Group>
-              <NumberInput
-                flex={1}
-                min={0}
-                max={150}
-                placeholder="0"
-                label={
-                  <Text fw={700} c="gray" size="xs" tt="uppercase" lts={0.1}>
-                    Rango mínimo
-                  </Text>
-                }
-              />
-              <NumberInput
-                flex={1}
-                min={0}
-                max={150}
-                placeholder="100"
-                label={
-                  <Text fw={700} c="gray" size="xs" tt="uppercase" lts={0.1}>
-                    Rango máximo
-                  </Text>
-                }
-              />
-            </Group>
-          </Stack>
-          <Divider mx="-lg" my="lg" />
-          <Stack gap="xs">
-            <Text fw={600} size="md">
-              Última consulta
-            </Text>
-            <Group>
-              <DatePickerInput
-                flex={1}
-                defaultValue={new Date()}
-                label={
-                  <Text fw={700} c="gray" size="xs" tt="uppercase" lts={0.1}>
-                    Desde
-                  </Text>
-                }
-              />
-              <DatePickerInput
-                flex={1}
-                defaultValue={new Date()}
-                label={
-                  <Text fw={700} c="gray" size="xs" tt="uppercase" lts={0.1}>
-                    Hasta
-                  </Text>
-                }
-              />
-            </Group>
-          </Stack>
-        </Stack>
-        <Divider mx="-lg" mb="lg" />
-        <Stack>
-          <Button>Aplicar Filtros (2)</Button>
-          <Button variant="default" leftSection={<FontAwesomeIcon icon={faRotateRight} />}>
-            Limpiar Filtros
-          </Button>
-        </Stack>
-      </Drawer>
+      <PatientsFiltersDrawer
+        opened={patientsFiltersDrawerOpened}
+        onClose={closePatientsFiltersDrawer}
+      />
     </>
   )
 }
