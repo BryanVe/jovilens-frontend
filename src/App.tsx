@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router'
 import {
   Home,
   MedicalRecords,
+  PatientDetails,
   Patients,
   Permissions,
   Profile,
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: '/patients',
         element: <Patients />,
+      },
+      {
+        path: '/patients/:patientId',
+        element: <PatientDetails />,
       },
       {
         path: '/medical-records',

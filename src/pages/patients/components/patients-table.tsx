@@ -23,8 +23,8 @@ import {
   faFilter,
   faMagnifyingGlass,
 } from '@fortawesome/free-solid-svg-icons'
-import './style.css'
 import { PatientsFiltersDrawer } from './patients-filters-drawer'
+import { Link } from 'react-router'
 
 const orderOptions = [
   'Apellido (A-Z)',
@@ -119,7 +119,7 @@ const columns: TTableColumn<TPatientTableRow>[] = [
     id: 'fullName',
     label: 'Nombre Completo',
     render: (data) => (
-      <Anchor size="sm" fw={600}>
+      <Anchor component={Link} size="sm" fw={600} to={`/patients/${data.id}`}>
         {data.fullName}
       </Anchor>
     ),
@@ -169,7 +169,7 @@ const columns: TTableColumn<TPatientTableRow>[] = [
             Nueva consulta
           </Menu.Item>
           <Menu.Item
-            color="gray.9"
+            c="black"
             fw={600}
             leftSection={<FontAwesomeIcon icon={faArrowUpRightFromSquare} />}
           >
@@ -203,7 +203,6 @@ export const PatientsTable = () => {
               />
               <Button
                 variant="default"
-                c="gray.8"
                 leftSection={<FontAwesomeIcon icon={faFilter} />}
                 onClick={openPatientsFiltersDrawer}
               >
@@ -211,7 +210,7 @@ export const PatientsTable = () => {
               </Button>
             </Group>
             <Group>
-              <Text c="gray.6" size="sm">
+              <Text c="gray.7" size="sm">
                 Ordenar por:
               </Text>
               <Select defaultValue="Apellido (A-Z)" data={orderOptions} fw={600} />
@@ -223,17 +222,17 @@ export const PatientsTable = () => {
           <Table data={patients} columns={columns} />
           <Divider />
           <Group p="md" justify="space-between">
-            <Text c="gray.6" size="sm">
+            <Text c="gray.7" size="sm">
               Mostrando{' '}
-              <Text span c="gray.8" fw={700}>
+              <Text span c="black" fw={700}>
                 1
               </Text>{' '}
               -{' '}
-              <Text span c="gray.8" fw={700}>
+              <Text span c="black" fw={700}>
                 10
               </Text>{' '}
               de{' '}
-              <Text span c="gray.8" fw={700}>
+              <Text span c="black" fw={700}>
                 45
               </Text>{' '}
               resultados

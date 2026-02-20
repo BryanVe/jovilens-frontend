@@ -73,7 +73,7 @@ export const PatientsFiltersDrawer = (props: TPatientsFiltersDrawerProps) => {
               <Radio
                 value="all"
                 label={
-                  <Text fw={600} size="sm" c="gray.7">
+                  <Text fw={600} size="sm" c="dark">
                     Todos
                   </Text>
                 }
@@ -82,7 +82,7 @@ export const PatientsFiltersDrawer = (props: TPatientsFiltersDrawerProps) => {
               <Radio
                 value="with-consultations"
                 label={
-                  <Text fw={600} size="sm" c="gray.7">
+                  <Text fw={600} size="sm" c="dark">
                     Con consultas
                   </Text>
                 }
@@ -91,7 +91,7 @@ export const PatientsFiltersDrawer = (props: TPatientsFiltersDrawerProps) => {
               <Radio
                 value="without-consultations"
                 label={
-                  <Text fw={600} size="sm" c="gray.7">
+                  <Text fw={600} size="sm" c="dark">
                     Sin consultas
                   </Text>
                 }

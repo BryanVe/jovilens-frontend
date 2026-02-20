@@ -8,10 +8,10 @@ export const Header = () => {
       <ThemeIcon hiddenFrom="lg" variant="light" mx="auto" mb="sm" size={40}>
         <FontAwesomeIcon icon={faLock} size="xl" />
       </ThemeIcon>
-      <Title c="dark.5" ta={{ base: 'center', lg: 'left' }} fz={{ base: 'h2', xs: 'h1' }}>
+      <Title c="dark" ta={{ base: 'center', lg: 'left' }} fz={{ base: 'h2', xs: 'h1' }}>
         Accede a tu cuenta
       </Title>
-      <Text c="gray.6" ta={{ base: 'center', lg: 'left' }} fz={{ base: 'sm', xs: 'md' }}>
+      <Text c="gray.7" ta={{ base: 'center', lg: 'left' }} fz={{ base: 'sm', xs: 'md' }}>
         Bienvenido de nuevo, por favor introduce tus datos
       </Text>
     </Stack>
