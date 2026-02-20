@@ -1,1 +1,1 @@
-export * from './last-prescription-card'
+export * from './clinical-summary-tab'

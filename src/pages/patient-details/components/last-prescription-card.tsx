@@ -33,7 +33,7 @@ export const LastPrescriptionCard = (props: TLastPrescriptionCardProps) => {
             PDF
           </Button>
         </Group>
-        <Card withBorder bg="gray.0">
+        <Card bg="gray.0">
           <Stack>
             <Badge size="lg" color="blue" variant="light" px={rem(8)} radius="sm">
               OD
@@ -101,7 +101,7 @@ export const LastPrescriptionCard = (props: TLastPrescriptionCardProps) => {
             </Group>
           </Stack>
         </Card>
-        <Card withBorder bg="gray.0">
+        <Card bg="gray.0">
           <Stack>
             <Badge size="lg" color="blue" variant="light" px={rem(8)} radius="sm">
               OI
@@ -178,7 +178,7 @@ export const LastPrescriptionCard = (props: TLastPrescriptionCardProps) => {
             Lentes Monofocales con Filtro Azul (Anti-reflex)
           </Text>
         </Stack>
-        <Text mt="xs" c="gray.6" size={rem(12)} fw={600} fs="italic" ta="center">
+        <Text mt="xs" c="gray.6" size="xs" fw={600} fs="italic" ta="center">
           Basado en la última consulta finalizada
         </Text>
       </Stack>
