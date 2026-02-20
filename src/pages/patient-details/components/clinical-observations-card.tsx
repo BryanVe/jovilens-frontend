@@ -30,7 +30,13 @@ export const ClinicalObservationsCard = (props: TClinicalObservationsCardProps) 
           </Group>
         </Card>
         <Text mt="xs" c="gray.6" size="xs" fw={600} ta="end">
-          <FontAwesomeIcon icon={faClockRotateLeft} size="lg" />
+          <FontAwesomeIcon
+            icon={faClockRotateLeft}
+            size="lg"
+            transform={{
+              flipX: true,
+            }}
+          />
           <Text span inherit ml={rem(4)}>
             Última actualización: 12 Oct 2025
           </Text>

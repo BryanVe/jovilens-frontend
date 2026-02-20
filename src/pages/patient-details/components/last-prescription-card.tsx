@@ -171,7 +171,7 @@ export const LastPrescriptionCard = (props: TLastPrescriptionCardProps) => {
         </Card>
         <Divider />
         <Stack gap="xs">
-          <Text c="dark.3" size={rem(13)} tt="uppercase" fw={700}>
+          <Text c="gray.6" size={rem(13)} tt="uppercase" fw={700}>
             Recomendación
           </Text>
           <Text c="dark" fw={600} size={rem(14)}>
