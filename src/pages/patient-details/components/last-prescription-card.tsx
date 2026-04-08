@@ -14,171 +14,117 @@ import {
   type CardProps,
 } from '@mantine/core'
 
+const prescriptionByEye = [
+  {
+    eye: 'OD',
+    values: [
+      { label: 'Esfera', value: '-2.25' },
+      { label: 'Cilindro', value: '-0.75' },
+      { label: 'Eje', value: '180°' },
+      { label: 'Adición', value: '+2.00' },
+    ],
+  },
+  {
+    eye: 'OI',
+    values: [
+      { label: 'Esfera', value: '-2.25' },
+      { label: 'Cilindro', value: '-0.75' },
+      { label: 'Eje', value: '180°' },
+      { label: 'Adición', value: '+2.00' },
+    ],
+  },
+] as const
+
 type TLastPrescriptionCardProps = CardProps
 
 export const LastPrescriptionCard = (props: TLastPrescriptionCardProps) => {
   return (
     <Card p="lg" radius="md" withBorder {...props}>
-      <Stack>
-        <Group justify="space-between">
-          <Group>
-            <ThemeIcon variant="transparent">
-              <FontAwesomeIcon icon={faFileLines} size="xl" />
-            </ThemeIcon>
-            <Text fw={700} size="xl">
-              Última Refracción
-            </Text>
+      <Stack gap="sm" justify="space-between" h="100%">
+        <Stack gap="sm">
+          <Group justify="space-between" align="center" gap="sm">
+            <Group gap="xs">
+              <ThemeIcon variant="transparent" size="sm">
+                <FontAwesomeIcon icon={faFileLines} size="lg" />
+              </ThemeIcon>
+              <Text fw={700} size="lg">
+                Última receta
+              </Text>
+            </Group>
+            <Button
+              px={0}
+              size="compact-sm"
+              variant="subtle"
+              leftSection={<FontAwesomeIcon icon={faDownload} size="sm" />}
+            >
+              PDF
+            </Button>
           </Group>
-          <Button px={0} variant="transparent" leftSection={<FontAwesomeIcon icon={faDownload} />}>
-            PDF
-          </Button>
-        </Group>
-        <Card bg="gray.0">
-          <Stack>
-            <Badge size="lg" color="blue" variant="light" px={rem(8)} radius="sm">
-              OD
-            </Badge>
-            <Group justify="space-between">
-              <Stack gap={0}>
-                <Text tt="uppercase" fw={600} c="gray" size={rem(13)}>
-                  Esfera
-                </Text>
-                <Text
-                  c="dark"
-                  fw={700}
-                  style={{
-                    fontVariantNumeric: 'tabular-nums',
-                  }}
-                >
-                  -2.25
-                </Text>
-              </Stack>
-              <Divider orientation="vertical" />
-              <Stack gap={0}>
-                <Text tt="uppercase" fw={600} c="gray" size={rem(13)}>
-                  Cilindro
-                </Text>
-                <Text
-                  c="dark"
-                  fw={700}
-                  style={{
-                    fontVariantNumeric: 'tabular-nums',
-                  }}
-                >
-                  -0.75
-                </Text>
-              </Stack>
-              <Divider orientation="vertical" />
-              <Stack gap={0}>
-                <Text tt="uppercase" fw={600} c="gray" size={rem(13)}>
-                  Eje
-                </Text>
-                <Text
-                  c="dark"
-                  fw={700}
-                  style={{
-                    fontVariantNumeric: 'tabular-nums',
-                  }}
-                >
-                  180°
-                </Text>
-              </Stack>
-              <Divider orientation="vertical" />
-              <Stack gap={0}>
-                <Text tt="uppercase" fw={600} c="gray" size={rem(13)}>
-                  Adición
-                </Text>
-                <Text
-                  c="dark"
-                  fw={700}
-                  style={{
-                    fontVariantNumeric: 'tabular-nums',
-                  }}
-                >
-                  +2.00
-                </Text>
-              </Stack>
-            </Group>
+
+          <Stack gap="sm">
+            {prescriptionByEye.map((prescription) => (
+              <Card key={prescription.eye} bg="gray.0" p="sm" radius="md">
+                <Stack gap="sm">
+                  <Badge
+                    size="md"
+                    color="blue"
+                    variant="light"
+                    px={rem(8)}
+                    radius="sm"
+                    tt="unset"
+                    w="fit-content"
+                  >
+                    {prescription.eye}
+                  </Badge>
+
+                  <Group align="stretch" wrap="nowrap" gap="sm">
+                    {prescription.values.map((item, index) => (
+                      <Group
+                        key={item.label}
+                        align="stretch"
+                        gap="sm"
+                        wrap="nowrap"
+                        style={{ flex: 1 }}
+                      >
+                        <Stack gap={0} style={{ flex: 1 }}>
+                          <Text tt="uppercase" fw={700} c="gray.6" size={rem(11)}>
+                            {item.label}
+                          </Text>
+                          <Text
+                            c="dark"
+                            fw={700}
+                            size="sm"
+                            style={{
+                              fontVariantNumeric: 'tabular-nums',
+                            }}
+                          >
+                            {item.value}
+                          </Text>
+                        </Stack>
+                        {index < prescription.values.length - 1 && (
+                          <Divider orientation="vertical" />
+                        )}
+                      </Group>
+                    ))}
+                  </Group>
+                </Stack>
+              </Card>
+            ))}
           </Stack>
-        </Card>
-        <Card bg="gray.0">
-          <Stack>
-            <Badge size="lg" color="blue" variant="light" px={rem(8)} radius="sm">
-              OI
-            </Badge>
-            <Group justify="space-between">
-              <Stack gap={0}>
-                <Text tt="uppercase" fw={600} c="gray" size={rem(13)}>
-                  Esfera
-                </Text>
-                <Text
-                  c="dark"
-                  fw={700}
-                  style={{
-                    fontVariantNumeric: 'tabular-nums',
-                  }}
-                >
-                  -2.25
-                </Text>
-              </Stack>
-              <Divider orientation="vertical" />
-              <Stack gap={0}>
-                <Text tt="uppercase" fw={600} c="gray" size={rem(13)}>
-                  Cilindro
-                </Text>
-                <Text
-                  c="dark"
-                  fw={700}
-                  style={{
-                    fontVariantNumeric: 'tabular-nums',
-                  }}
-                >
-                  -0.75
-                </Text>
-              </Stack>
-              <Divider orientation="vertical" />
-              <Stack gap={0}>
-                <Text tt="uppercase" fw={600} c="gray" size={rem(13)}>
-                  Eje
-                </Text>
-                <Text
-                  c="dark"
-                  fw={700}
-                  style={{
-                    fontVariantNumeric: 'tabular-nums',
-                  }}
-                >
-                  180°
-                </Text>
-              </Stack>
-              <Divider orientation="vertical" />
-              <Stack gap={0}>
-                <Text tt="uppercase" fw={600} c="gray" size={rem(13)}>
-                  Adición
-                </Text>
-                <Text
-                  c="dark"
-                  fw={700}
-                  style={{
-                    fontVariantNumeric: 'tabular-nums',
-                  }}
-                >
-                  +2.00
-                </Text>
-              </Stack>
-            </Group>
+
+          <Divider />
+
+          <Stack gap={2}>
+            <Text c="gray.6" size={rem(11)} tt="uppercase" fw={700}>
+              Recomendación
+            </Text>
+            <Text c="dark" fw={600} size="sm">
+              Lentes monofocales con filtro azul (anti-reflex)
+            </Text>
           </Stack>
-        </Card>
-        <Divider />
-        <Stack gap="xs">
-          <Text c="gray.6" size={rem(13)} tt="uppercase" fw={700}>
-            Recomendación
-          </Text>
-          <Text c="dark" fw={600} size={rem(14)}>
-            Lentes Monofocales con Filtro Azul (Anti-reflex)
-          </Text>
         </Stack>
-        <Text mt="xs" c="gray.6" size="xs" fw={600} fs="italic" ta="center">
+
+        <Text c="gray.6" size="xs" fw={600} fs="italic" ta="center">
           Basado en la última consulta finalizada
         </Text>
       </Stack>

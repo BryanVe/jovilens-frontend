@@ -1,1 +1,5 @@
 export * from './clinical-summary-tab'
+export * from './allergies-card'
+export * from './clinical-observations-card'
+export * from './conditions.card'
+export * from './last-prescription-card'

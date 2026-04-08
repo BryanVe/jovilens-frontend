@@ -7,20 +7,20 @@ type TConditionsCardProps = CardProps
 export const ConditionsCard = (props: TConditionsCardProps) => {
   return (
     <Card p="lg" radius="md" withBorder {...props}>
-      <Stack>
-        <Group>
-          <ThemeIcon variant="transparent" color="yellow">
-            <FontAwesomeIcon icon={faLaptopMedical} size="xl" />
+      <Stack gap="sm">
+        <Group gap="xs">
+          <ThemeIcon variant="transparent" color="yellow" size="sm">
+            <FontAwesomeIcon icon={faLaptopMedical} size="lg" />
           </ThemeIcon>
-          <Text fw={700} size="xl">
+          <Text fw={700} size="lg">
             Condiciones
           </Text>
         </Group>
-        <Group gap="xs" wrap="wrap" maw={rem(300)}>
+        <Group gap="xs" wrap="wrap" maw={rem(320)}>
           <Badge
             tt="unset"
-            size="lg"
-            variant="outline"
+            size="md"
+            variant="light"
             color="yellow"
             bg="yellow.0"
             c="yellow.7"
@@ -31,8 +31,8 @@ export const ConditionsCard = (props: TConditionsCardProps) => {
           </Badge>
           <Badge
             tt="unset"
-            size="lg"
-            variant="outline"
+            size="md"
+            variant="light"
             color="yellow"
             bg="yellow.0"
             c="yellow.7"
@@ -41,7 +41,7 @@ export const ConditionsCard = (props: TConditionsCardProps) => {
           >
             Astigmatismo
           </Badge>
-          <Badge tt="unset" size="lg" variant="outline" color="blue" bg="blue.0" radius="sm">
+          <Badge tt="unset" size="md" variant="light" color="blue" bg="blue.0" radius="sm">
             Uso de PC &gt; 8h
           </Badge>
         </Group>
