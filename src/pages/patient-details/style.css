@@ -1,9 +1,0 @@
-.mantine-Tabs-tab {
-  padding-inline: 0 !important;
-  font-weight: 600;
-  color: var(--mantine-color-dark-6);
-
-  &[data-active] {
-    color: var(--mantine-color-blue-6);
-  }
-}

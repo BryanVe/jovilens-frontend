@@ -43,7 +43,7 @@ const columns: TTableColumn<TConsultationTableRow>[] = [
         <Text fw={700} size="sm">
           {consultation.reason}
         </Text>
-        <Text c="dimmed" size="xs">
+        <Text c="gray.7" size="xs">
           {consultation.consultationType}
         </Text>
       </Stack>
@@ -78,8 +78,8 @@ const columns: TTableColumn<TConsultationTableRow>[] = [
     id: 'actions',
     label: 'Acciones',
     render: (consultation) => (
-      <Group gap={4} justify="flex-end" wrap="nowrap">
-        <ActionIcon variant="light" color="blue" aria-label="Ver consulta">
+      <Group gap="xs" justify="flex-end" wrap="nowrap">
+        <ActionIcon variant="default" aria-label="Ver consulta">
           <FontAwesomeIcon icon={faEye} />
         </ActionIcon>
 
@@ -135,7 +135,7 @@ export const ConsultationsTable = ({
   const to = Math.min(page * 5, total)
 
   return (
-    <Card withBorder radius="md">
+    <Card>
       <Card.Section>
         <Divider />
         <Table data={consultations} columns={columns} horizontalSpacing="sm" verticalSpacing="xs" />
@@ -146,15 +146,15 @@ export const ConsultationsTable = ({
         <Group justify="space-between" align="center">
           <Text c="gray.7" size="sm">
             Mostrando{' '}
-            <Text span c="dark" fw={700}>
+            <Text span fw={700}>
               {from}
             </Text>{' '}
             -{' '}
-            <Text span c="dark" fw={700}>
+            <Text span fw={700}>
               {to}
             </Text>{' '}
             de{' '}
-            <Text span c="dark" fw={700}>
+            <Text span fw={700}>
               {total}
             </Text>{' '}
             consultas

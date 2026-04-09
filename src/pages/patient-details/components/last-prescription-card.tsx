@@ -7,7 +7,6 @@ import {
   Card,
   Divider,
   Group,
-  rem,
   Stack,
   Text,
   ThemeIcon,
@@ -39,7 +38,7 @@ type TLastPrescriptionCardProps = CardProps
 
 export const LastPrescriptionCard = (props: TLastPrescriptionCardProps) => {
   return (
-    <Card p="lg" radius="md" withBorder {...props}>
+    <Card {...props}>
       <Stack gap="sm" justify="space-between" h="100%">
         <Stack gap="sm">
           <Group justify="space-between" align="center" gap="sm">
@@ -52,9 +51,8 @@ export const LastPrescriptionCard = (props: TLastPrescriptionCardProps) => {
               </Text>
             </Group>
             <Button
-              px={0}
               size="compact-sm"
-              variant="subtle"
+              variant="default"
               leftSection={<FontAwesomeIcon icon={faDownload} size="sm" />}
             >
               PDF
@@ -63,17 +61,9 @@ export const LastPrescriptionCard = (props: TLastPrescriptionCardProps) => {
 
           <Stack gap="sm">
             {prescriptionByEye.map((prescription) => (
-              <Card key={prescription.eye} bg="gray.0" p="sm" radius="md">
+              <Card key={prescription.eye} bg="gray.0" p="sm">
                 <Stack gap="sm">
-                  <Badge
-                    size="md"
-                    color="blue"
-                    variant="light"
-                    px={rem(8)}
-                    radius="sm"
-                    tt="unset"
-                    w="fit-content"
-                  >
+                  <Badge size="md" color="gray" variant="light" tt="unset" w="fit-content">
                     {prescription.eye}
                   </Badge>
 
@@ -87,17 +77,10 @@ export const LastPrescriptionCard = (props: TLastPrescriptionCardProps) => {
                         style={{ flex: 1 }}
                       >
                         <Stack gap={0} style={{ flex: 1 }}>
-                          <Text tt="uppercase" fw={700} c="gray.6" size={rem(11)}>
+                          <Text tt="uppercase" fw={700} c="gray.7" size="xs">
                             {item.label}
                           </Text>
-                          <Text
-                            c="dark"
-                            fw={700}
-                            size="sm"
-                            style={{
-                              fontVariantNumeric: 'tabular-nums',
-                            }}
-                          >
+                          <Text fw={700} size="sm" style={{ fontVariantNumeric: 'tabular-nums' }}>
                             {item.value}
                           </Text>
                         </Stack>
@@ -114,17 +97,17 @@ export const LastPrescriptionCard = (props: TLastPrescriptionCardProps) => {
 
           <Divider />
 
-          <Stack gap={2}>
-            <Text c="gray.6" size={rem(11)} tt="uppercase" fw={700}>
+          <Stack gap={0}>
+            <Text c="gray.7" size="xs" tt="uppercase" fw={700}>
               Recomendación
             </Text>
-            <Text c="dark" fw={600} size="sm">
+            <Text fw={600} size="sm">
               Lentes monofocales con filtro azul (anti-reflex)
             </Text>
           </Stack>
         </Stack>
 
-        <Text c="gray.6" size="xs" fw={600} fs="italic" ta="center">
+        <Text c="gray.7" size="xs" fw={600} fs="italic" ta="center">
           Basado en la última consulta finalizada
         </Text>
       </Stack>

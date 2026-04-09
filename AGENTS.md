@@ -32,6 +32,7 @@ Follow the existing project patterns before introducing new abstractions or new 
 - Prefer improving project instructions when the same correction is likely to be useful again.
 - Keep instruction updates concise, practical, and specific to this repository.
 - Do not add speculative rules; only capture conventions that are already real, validated, or intentionally adopted.
+- When a design-system or UI consistency decision is intentionally adopted during implementation, update `AGENTS.md` in the same task so the rule becomes part of the repository convention.
 
 ## React rules
 
@@ -84,6 +85,23 @@ Follow the existing project patterns before introducing new abstractions or new 
 - Keep styling consistent with the existing Mantine approach used in the repo.
 - Prefer theme-driven tokens over scattered one-off visual values.
 - Avoid one-off styling decisions that bypass the design system unless they are truly isolated and justified.
+- Treat Stitch as a visual and structural reference, but use the project theme as the source of truth for colors, spacing, radius, and typography.
+- Prefer Mantine theme configuration and component defaults over one-off component styling.
+
+## Design system rules
+
+- Prefer Mantine theme tokens over hardcoded visual values.
+- Do not introduce ad hoc colors, spacing, radius, or font sizes when an existing theme token is sufficient.
+- Reuse the project theme before creating one-off visual styles.
+- If a visual value is repeated or meant to be part of the design language, add it to the theme instead of hardcoding it in components.
+- Prefer consistency with the project theme over local visual tweaks.
+- Use Mantine spacing tokens (`xs`, `sm`, `md`, `lg`, `xl`) instead of arbitrary numeric spacing when possible.
+- Use theme-driven color usage and avoid direct hex values in components unless there is a strong reason.
+- Prefer the theme's default radius, heading scale, primary color, and component defaults before overriding values locally.
+- When implementing a screen from Stitch, match the structure and hierarchy first, then adapt the visuals to the project theme instead of copying raw values literally.
+- If a layout or styling pattern starts repeating across screens, extract it into the theme or a shared component rather than duplicating local styles.
+- Treat blue as the primary action color; prefer neutral `default` or gray-based treatments for secondary actions, informational badges, and decorative accents unless a semantic status color is required.
+- Prefer extending Mantine component defaults in `src/theme/theme.tsx` for repeated visual decisions on `Button`, `ActionIcon`, `Badge`, `ThemeIcon`, `Tabs`, and similar primitives before adding local overrides in pages or components.
 
 ## Forms and validation
 

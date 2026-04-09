@@ -6,7 +6,7 @@ type TConditionsCardProps = CardProps
 
 export const ConditionsCard = (props: TConditionsCardProps) => {
   return (
-    <Card p="lg" radius="md" withBorder {...props}>
+    <Card {...props}>
       <Stack gap="sm">
         <Group gap="xs">
           <ThemeIcon variant="transparent" color="yellow" size="sm">
@@ -22,9 +22,6 @@ export const ConditionsCard = (props: TConditionsCardProps) => {
             size="md"
             variant="light"
             color="yellow"
-            bg="yellow.0"
-            c="yellow.7"
-            radius="sm"
             leftSection={<FontAwesomeIcon icon={faCircle} size="2xs" />}
           >
             Miopía
@@ -34,14 +31,11 @@ export const ConditionsCard = (props: TConditionsCardProps) => {
             size="md"
             variant="light"
             color="yellow"
-            bg="yellow.0"
-            c="yellow.7"
-            radius="sm"
             leftSection={<FontAwesomeIcon icon={faCircle} size="2xs" />}
           >
             Astigmatismo
           </Badge>
-          <Badge tt="unset" size="md" variant="light" color="blue" bg="blue.0" radius="sm">
+          <Badge tt="unset" size="md" variant="light" color="gray">
             Uso de PC &gt; 8h
           </Badge>
         </Group>

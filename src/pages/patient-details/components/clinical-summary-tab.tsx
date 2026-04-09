@@ -8,7 +8,7 @@ import {
   faPaperPlane,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Badge, Button, Card, Grid, Group, Stack, Text, ThemeIcon, rem } from '@mantine/core'
+import { Badge, Button, Card, Grid, Group, Stack, Text, ThemeIcon } from '@mantine/core'
 import type { ReactNode } from 'react'
 import { AllergiesCard } from './allergies-card'
 import { ClinicalObservationsCard } from './clinical-observations-card'
@@ -66,7 +66,7 @@ type TQuickActionItemProps = {
 
 const QuickActionItem = ({ icon, title, description, color }: TQuickActionItemProps) => {
   return (
-    <Card bg="gray.0" radius="md" p="sm">
+    <Card bg="gray.0" p="sm">
       <Group gap="sm" wrap="nowrap">
         <ThemeIcon size={40} radius="md" variant="light" color={color}>
           {icon}
@@ -75,7 +75,7 @@ const QuickActionItem = ({ icon, title, description, color }: TQuickActionItemPr
           <Text fw={700} size="sm">
             {title}
           </Text>
-          <Text c="dimmed" size="xs">
+          <Text c="gray.7" size="xs">
             {description}
           </Text>
         </Stack>
@@ -96,7 +96,7 @@ type THistoryEntryProps = {
 
 const HistoryEntry = ({ date, reason, summary, status }: THistoryEntryProps) => {
   return (
-    <Stack gap={6}>
+    <Stack gap="xs">
       <Group gap="xs">
         <Badge variant="light" color="gray" tt="unset" size="sm">
           {date}
@@ -108,7 +108,7 @@ const HistoryEntry = ({ date, reason, summary, status }: THistoryEntryProps) => 
       <Text fw={700} size="sm">
         {reason}
       </Text>
-      <Text c="dimmed" size="xs">
+      <Text c="gray.7" size="xs">
         {summary}
       </Text>
     </Stack>
@@ -126,11 +126,11 @@ const AppointmentDetail = ({
 }) => {
   return (
     <Group align="flex-start" gap="xs" wrap="nowrap">
-      <ThemeIcon variant="transparent" color="blue" size="sm">
+      <ThemeIcon variant="transparent" color="dark" size="sm">
         {icon}
       </ThemeIcon>
       <Stack gap={0}>
-        <Text c="dimmed" fw={700} tt="uppercase" size={rem(10)}>
+        <Text c="gray.7" fw={700} tt="uppercase" size="xs">
           {label}
         </Text>
         <Text fw={600} size="sm">
@@ -163,25 +163,24 @@ export const ClinicalSummaryTab = () => {
           </Grid.Col>
 
           <Grid.Col span={12}>
-            <Card radius="md" withBorder>
+            <Card>
               <Card.Section inheritPadding py="md">
                 <Group justify="space-between" align="center" gap="sm">
                   <Group gap="xs" align="center">
-                    <ThemeIcon variant="transparent" color="gray" size="sm">
+                    <ThemeIcon variant="transparent" color="dark" size="sm">
                       <FontAwesomeIcon icon={faClockRotateLeft} />
                     </ThemeIcon>
                     <Text fw={700} size="lg">
                       Mini-historial
                     </Text>
-                    <Text c="dimmed" size="sm">
+                    <Text c="gray.7" size="sm">
                       Últimas 3 consultas
                     </Text>
                   </Group>
 
                   <Button
-                    px={0}
                     size="compact-sm"
-                    variant="subtle"
+                    variant="default"
                     rightSection={<FontAwesomeIcon icon={faArrowRight} size="sm" />}
                   >
                     Ver historial
@@ -206,7 +205,7 @@ export const ClinicalSummaryTab = () => {
 
       <Grid.Col span={{ base: 12, lg: 4 }}>
         <Stack gap="md">
-          <Card p="md" radius="md" withBorder>
+          <Card p="md">
             <Stack gap="md">
               <Group justify="space-between" align="center" gap="sm">
                 <Text fw={700} size="lg">
@@ -217,22 +216,17 @@ export const ClinicalSummaryTab = () => {
                 </Badge>
               </Group>
 
-              <Card
-                bg="blue.0"
-                radius="md"
-                p="md"
-                style={{ position: 'relative', overflow: 'hidden' }}
-              >
+              <Card bg="gray.0" p="md" style={{ position: 'relative', overflow: 'hidden' }}>
                 <ThemeIcon
                   size={72}
                   radius="xl"
-                  variant="light"
-                  color="blue"
+                  variant="transparent"
+                  color="gray"
                   style={{
                     position: 'absolute',
-                    right: rem(8),
-                    top: rem(8),
-                    opacity: 0.2,
+                    right: 'var(--mantine-spacing-xs)',
+                    top: 'var(--mantine-spacing-xs)',
+                    opacity: 0.16,
                   }}
                 >
                   <FontAwesomeIcon icon={faCalendarDays} size="xl" />
@@ -266,7 +260,7 @@ export const ClinicalSummaryTab = () => {
             </Stack>
           </Card>
 
-          <Card p="md" radius="md" withBorder>
+          <Card p="md">
             <Stack gap="md">
               <Text fw={700} size="lg">
                 Acciones rápidas

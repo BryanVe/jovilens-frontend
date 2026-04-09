@@ -6,7 +6,7 @@ type TAllergiesCardProps = CardProps
 
 export const AllergiesCard = (props: TAllergiesCardProps) => {
   return (
-    <Card p="lg" radius="md" withBorder {...props}>
+    <Card {...props}>
       <Stack gap="sm">
         <Group gap="xs">
           <ThemeIcon variant="transparent" color="red" size="sm">
@@ -17,12 +17,12 @@ export const AllergiesCard = (props: TAllergiesCardProps) => {
           </Text>
         </Group>
 
-        <Card bg="red.0" radius="md" p="sm">
+        <Card bg="red.0" p="sm">
           <Group align="flex-start" gap="sm" wrap="nowrap">
             <ThemeIcon color="red" variant="light" size="sm" radius="xl">
               <FontAwesomeIcon icon={faTriangleExclamation} size="2xs" />
             </ThemeIcon>
-            <Stack gap={2}>
+            <Stack gap={0}>
               <Text fw={700} c="red.8" size="sm">
                 Polen
               </Text>

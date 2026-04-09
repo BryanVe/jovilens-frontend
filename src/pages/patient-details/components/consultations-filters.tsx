@@ -101,12 +101,12 @@ export const ConsultationsFilters = ({
         {hasActiveStatusFilter && (
           <Box
             px="sm"
-            py={8}
+            py="xs"
             bg="gray.0"
             bd="1px solid var(--mantine-color-gray-2)"
             style={{ borderRadius: 'var(--mantine-radius-md)' }}
           >
-            <Group gap={4}>
+            <Group gap="xs">
               <Text size="xs" fw={600} c="gray.7">
                 Estado: {statusLabelByValue[filters.status]}
               </Text>
@@ -123,7 +123,7 @@ export const ConsultationsFilters = ({
           </Box>
         )}
 
-        <Button variant="subtle" px={0} size="compact-sm" onClick={onClearFilters}>
+        <Button variant="light" color="gray" size="compact-sm" onClick={onClearFilters}>
           Limpiar filtros
         </Button>
       </Group>
