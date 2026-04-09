@@ -165,7 +165,7 @@ const columns: TTableColumn<TPatientTableRow>[] = [
           <Menu.Label fw={700} tt="uppercase" lts={0.3} fz={rem(11)}>
             Acciones
           </Menu.Label>
-          <Menu.Item color="blue" fw={600} leftSection={<FontAwesomeIcon icon={faCirclePlus} />}>
+          <Menu.Item color="indigo" fw={600} leftSection={<FontAwesomeIcon icon={faCirclePlus} />}>
             Nueva consulta
           </Menu.Item>
           <Menu.Item

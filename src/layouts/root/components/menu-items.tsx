@@ -38,14 +38,30 @@ type TMenuItemsProps = {
   items: TMenuItem[]
 }
 
+const isItemActive = (to: string | undefined, pathname: string) => {
+  if (!to) {
+    return false
+  }
+
+  if (to === '/') {
+    return pathname === '/'
+  }
+
+  return pathname === to || pathname.startsWith(`${to}/`)
+}
+
 export const MenuItems = ({ items }: TMenuItemsProps) => {
   const location = useLocation()
 
   return items.map((item) => {
-    const isActive = item.to === location.pathname
+    const isActive = isItemActive(item.to, location.pathname)
     const leftSection = item.icon ? <FontAwesomeIcon icon={item.icon} /> : undefined
+    const className =
+      item.c === 'red'
+        ? 'root-sidebar-nav-link root-sidebar-nav-link-danger'
+        : 'root-sidebar-nav-link'
     const commonProps: NavLinkProps = {
-      variant: 'light',
+      variant: 'subtle',
       c: item.c,
       label: item.label,
       leftSection,
@@ -54,31 +70,24 @@ export const MenuItems = ({ items }: TMenuItemsProps) => {
     return item.to ? (
       <NavLink
         {...commonProps}
+        className={className}
         key={item.label}
         active={isActive}
         component={Link}
         to={item.to}
-        styles={(theme, props) => ({
-          root: {
-            color: props.active ? theme.colors.blue[6] : theme.colors.dark[6],
-          },
-        })}
       />
     ) : !Array.isArray(item.children) ? (
       <NavLink
         {...commonProps}
+        className={className}
         key={item.label}
         component="button"
         onClick={item.onClick}
-        styles={(theme) => ({
-          root: {
-            color: theme.colors.dark[6],
-          },
-        })}
       />
     ) : (
       <NavLink
         {...commonProps}
+        className={className}
         key={item.label}
         component="button"
         childrenOffset={rem(28)}
@@ -86,29 +95,24 @@ export const MenuItems = ({ items }: TMenuItemsProps) => {
         rightSection={
           <FontAwesomeIcon icon={isActive ? faChevronDown : faChevronRight} size="xs" />
         }
-        styles={(theme) => ({
-          root: {
-            color: theme.colors.dark[6],
-          },
-        })}
       >
         {item.children.map((childItem) => {
-          const isActive = childItem.to === location.pathname
+          const isActive = isItemActive(childItem.to, location.pathname)
+          const childClassName =
+            childItem.c === 'red'
+              ? 'root-sidebar-nav-link root-sidebar-nav-link-danger'
+              : 'root-sidebar-nav-link'
 
           return (
             <NavLink
+              className={childClassName}
               key={childItem.label}
               c={childItem.c}
               active={isActive}
               component={Link}
               to={childItem.to}
-              variant="light"
+              variant="subtle"
               label={childItem.label}
-              styles={(theme, props) => ({
-                root: {
-                  color: props.active ? theme.colors.blue[6] : theme.colors.dark[6],
-                },
-              })}
             />
           )
         })}

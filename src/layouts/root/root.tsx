@@ -28,7 +28,7 @@ export const Root = () => {
           <Flex h="100%" gap={0}>
             <Group w={NAVBAR_WIDTH - 1} px="md">
               <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
-              <Title order={2} c="blue">
+              <Title order={2} c="indigo">
                 Jovilens
               </Title>
             </Group>

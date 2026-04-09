@@ -1,4 +1,56 @@
-.mantine-NavLink-root {
-  border-radius: var(--mantine-radius-sm);
+.root-sidebar-nav-link {
+  border-radius: var(--mantine-radius-md);
   font-weight: 600;
+}
+
+.root-sidebar-active-surface {
+  background-color: var(--mantine-color-indigo-0) !important;
+  color: var(--mantine-color-indigo-8) !important;
+  border-color: transparent !important;
+
+  &:hover {
+    background-color: var(--mantine-color-indigo-0) !important;
+    color: var(--mantine-color-indigo-8) !important;
+  }
+}
+
+.root-sidebar-nav-link {
+  --nl-bg: transparent !important;
+  --nl-hover: var(--mantine-color-gray-0) !important;
+  --nl-color: var(--mantine-color-dark-6) !important;
+
+  color: var(--mantine-color-dark-6);
+  background-color: transparent;
+  transition:
+    background-color 150ms ease,
+    color 150ms ease;
+
+  .mantine-NavLink-section {
+    color: inherit;
+    transition: color 150ms ease;
+  }
+
+  &:hover {
+    color: var(--mantine-color-dark-6);
+  }
+
+  &:where([data-active], [aria-current='page']) {
+    --nl-bg: var(--mantine-color-indigo-0) !important;
+    --nl-hover: var(--mantine-color-indigo-0) !important;
+    --nl-color: var(--mantine-color-indigo-8) !important;
+
+    color: var(--mantine-color-indigo-8);
+
+    &:hover {
+      color: var(--mantine-color-indigo-8);
+    }
+  }
+}
+
+.root-sidebar-nav-link-danger {
+  --nl-bg: transparent !important;
+  --nl-hover: var(--mantine-color-red-0) !important;
+  --nl-color: var(--mantine-color-red-6) !important;
+
+  color: var(--mantine-color-red-6);
 }

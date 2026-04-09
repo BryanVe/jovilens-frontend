@@ -19,7 +19,7 @@ const quickActions = [
   {
     title: 'Registrar cita',
     description: 'Agendar próxima visita',
-    color: 'blue',
+    color: 'indigo',
     icon: faCalendarDays,
   },
   {
@@ -47,7 +47,7 @@ const historyEntries = [
     date: '18 Ago 2023',
     reason: 'Molestia ocular',
     summary: 'Irritación leve asociada a uso prolongado de pantallas. Se indica lubricación.',
-    status: { label: 'Seguimiento', color: 'blue' },
+    status: { label: 'Seguimiento', color: 'indigo' },
   },
   {
     date: '05 Jun 2023',

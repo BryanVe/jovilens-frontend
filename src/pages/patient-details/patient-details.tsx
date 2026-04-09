@@ -101,7 +101,7 @@ export const PatientDetails = () => {
             fontWeight: 600,
             color: theme.colors.dark[6],
             '&[data-active]': {
-              color: theme.colors.blue[6],
+              color: theme.colors.indigo[8],
             },
           },
         })}

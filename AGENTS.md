@@ -100,8 +100,12 @@ Follow the existing project patterns before introducing new abstractions or new 
 - Prefer the theme's default radius, heading scale, primary color, and component defaults before overriding values locally.
 - When implementing a screen from Stitch, match the structure and hierarchy first, then adapt the visuals to the project theme instead of copying raw values literally.
 - If a layout or styling pattern starts repeating across screens, extract it into the theme or a shared component rather than duplicating local styles.
-- Treat blue as the primary action color; prefer neutral `default` or gray-based treatments for secondary actions, informational badges, and decorative accents unless a semantic status color is required.
+- Treat indigo as the primary action color; prefer neutral `default` or gray-based treatments for secondary actions, informational badges, and decorative accents unless a semantic status color is required.
 - Prefer extending Mantine component defaults in `src/theme/theme.tsx` for repeated visual decisions on `Button`, `ActionIcon`, `Badge`, `ThemeIcon`, `Tabs`, and similar primitives before adding local overrides in pages or components.
+- Treat the sidebar and left brand area as a branded layout zone with its own visual rules: keep the base surface neutral, reserve indigo for brand and active navigation state, and avoid using generic tinted button fills for secondary sidebar actions.
+- In the sidebar profile block, make the avatar and profile CTA mirror the active navigation treatment exactly: soft indigo background, indigo foreground, and no neutral text treatment on those highlighted elements.
+- In the sidebar navigation, inactive items must keep neutral text with transparent background, switch only to a soft gray background on hover, and active items must use the same soft indigo background and stronger indigo text as the profile CTA without changing on hover.
+- When a visual treatment is exclusive to a specific layout zone, implement it with explicit, scoped class names tied to that area and avoid relying on generic `.mantine-*` selectors unless the intent is truly global.
 
 ## Forms and validation
 

@@ -5,23 +5,9 @@ import { faEye, faEyeSlash } from '@fortawesome/free-regular-svg-icons'
 
 export const theme = createTheme({
   fontFamily: 'Inter, sans-serif',
-  primaryColor: 'blue',
-  primaryShade: 5,
+  primaryColor: 'indigo',
+  primaryShade: 8,
   defaultRadius: 'md',
-  colors: {
-    blue: [
-      '#E6EFFF',
-      '#B9D1FE',
-      '#8CB4FD',
-      '#5F97FC',
-      '#3279FB',
-      '#055CFA',
-      '#0449C8',
-      '#033796',
-      '#022564',
-      '#011232',
-    ],
-  },
   spacing: {
     xs: '0.625rem',
     sm: '0.75rem',
