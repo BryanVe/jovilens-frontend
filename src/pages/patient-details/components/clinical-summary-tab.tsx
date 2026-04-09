@@ -143,9 +143,9 @@ const AppointmentDetail = ({
 
 export const ClinicalSummaryTab = () => {
   return (
-    <Grid gutter="md">
+    <Grid gap="md">
       <Grid.Col span={{ base: 12, lg: 8 }}>
-        <Grid gutter="md">
+        <Grid gap="md">
           <Grid.Col span={{ base: 12, md: 6 }}>
             <LastPrescriptionCard h="100%" p="md" />
           </Grid.Col>
