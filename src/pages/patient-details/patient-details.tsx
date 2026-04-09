@@ -4,11 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Avatar, Badge, Button, Card, Group, rem, Stack, Tabs, Text } from '@mantine/core'
 import { useParams } from 'react-router'
 import './style.css'
-import { ClinicalSummaryTab } from './components'
+import { ClinicalSummaryTab, ConsultationsTab } from './components'
 
 const tabs = [
   { label: 'Resumen clínico', value: 'clinical-summary', component: <ClinicalSummaryTab /> },
-  { label: 'Consultas', value: 'consultations' },
+  { label: 'Consultas', value: 'consultations', component: <ConsultationsTab /> },
   { label: 'Datos', value: 'data' },
   { label: 'Archivos', value: 'files' },
 ]
@@ -40,9 +40,14 @@ export const PatientDetails = () => {
           <Group>
             <Avatar name="Juan Pérez" color="initials" size="xl" />
             <Stack>
-              <Text size={rem(32)} fw={700}>
-                Juan Pérez
-              </Text>
+              <Group gap="sm">
+                <Text size={rem(32)} fw={700}>
+                  Juan Pérez
+                </Text>
+                <Badge size="lg" variant="light">
+                  Paciente frecuente
+                </Badge>
+              </Group>
               <Group>
                 <Badge
                   size="lg"
@@ -88,7 +93,7 @@ export const PatientDetails = () => {
           </Group>
         </Group>
       </Card>
-      <Tabs defaultValue="clinical-summary">
+      <Tabs defaultValue="consultations">
         <Tabs.List
           styles={{
             list: {

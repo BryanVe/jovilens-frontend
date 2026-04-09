@@ -1,3 +1,5 @@
+import type { TableProps } from '@mantine/core'
+
 export type TDefaultTableData = {
   id: string | number
   [key: string]: string | number | boolean
@@ -12,4 +14,6 @@ export type TTableColumn<TTableData extends TDefaultTableData = TDefaultTableDat
 export type TTableProps<TTableData extends TDefaultTableData = TDefaultTableData> = {
   data: TTableData[]
   columns: TTableColumn<TTableData>[]
+  horizontalSpacing?: TableProps['horizontalSpacing']
+  verticalSpacing?: TableProps['verticalSpacing']
 }

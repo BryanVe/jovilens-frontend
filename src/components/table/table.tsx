@@ -4,10 +4,15 @@ import type { TDefaultTableData, TTableProps } from './types'
 export function Table<TTableData extends TDefaultTableData = TDefaultTableData>(
   props: TTableProps<TTableData>,
 ) {
-  const { columns, data } = props
+  const { columns, data, horizontalSpacing = 'md', verticalSpacing = 'sm' } = props
 
   return (
-    <Table_ tabularNums highlightOnHover verticalSpacing="sm" horizontalSpacing="md">
+    <Table_
+      tabularNums
+      highlightOnHover
+      verticalSpacing={verticalSpacing}
+      horizontalSpacing={horizontalSpacing}
+    >
       <Table_.Thead>
         <Table_.Tr bg="gray.0">
           {columns.map((column) => (
