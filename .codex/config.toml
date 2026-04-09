@@ -1,0 +1,25 @@
+model = "gpt-5.4"
+model_reasoning_effort = "medium"
+approval_policy = "on-request"
+sandbox_mode = "workspace-write"
+
+[profiles.deep]
+model = "gpt-5.4"
+model_reasoning_effort = "high"
+approval_policy = "on-request"
+sandbox_mode = "workspace-write"
+
+[mcp_servers.stitch]
+url = "https://stitch.googleapis.com/mcp"
+http_headers = { Accept = "application/json" }
+env_http_headers = { "X-Goog-Api-Key" = "STITCH_API_KEY" }
+startup_timeout_sec = 20
+tool_timeout_sec = 60
+enabled = true
+
+# Placeholder for future Mantine MCP
+# [mcp_servers.mantine]
+# url = "http://localhost:3334/mcp"
+# startup_timeout_sec = 20
+# tool_timeout_sec = 60
+# enabled = false
