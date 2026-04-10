@@ -1,5 +1,5 @@
-import type { ActionIconProps, BadgeProps, ButtonProps, MantineTheme } from '@mantine/core'
-import { createTheme } from '@mantine/core'
+import type { ActionIconProps, ButtonProps, MantineTheme } from '@mantine/core'
+import { createTheme, defaultVariantColorsResolver } from '@mantine/core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from '@fortawesome/free-regular-svg-icons'
 
@@ -7,6 +7,62 @@ export const theme = createTheme({
   fontFamily: 'Inter, sans-serif',
   primaryColor: 'indigo',
   primaryShade: 8,
+  variantColorResolver: (input) => {
+    const defaultResolvedColors = defaultVariantColorsResolver(input)
+    const { color, theme, variant } = input
+
+    const primaryShade =
+      typeof theme.primaryShade === 'number' ? theme.primaryShade : theme.primaryShade.light
+
+    const resolvedColor =
+      typeof color === 'string' && color in theme.colors ? color : theme.primaryColor
+
+    if (variant === 'light') {
+      return {
+        background: `var(--mantine-color-${resolvedColor}-0)`,
+        hover: `var(--mantine-color-${resolvedColor}-1)`,
+        color:
+          resolvedColor === 'gray'
+            ? 'var(--mantine-color-dark-6)'
+            : `var(--mantine-color-${resolvedColor}-${primaryShade})`,
+        border: '1px solid transparent',
+      }
+    }
+
+    if (variant === 'subtle') {
+      return {
+        background: 'transparent',
+        hover: `var(--mantine-color-${resolvedColor}-0)`,
+        color:
+          resolvedColor === 'gray'
+            ? 'var(--mantine-color-dark-6)'
+            : `var(--mantine-color-${resolvedColor}-${primaryShade})`,
+        hoverColor:
+          resolvedColor === 'gray'
+            ? 'var(--mantine-color-dark-6)'
+            : `var(--mantine-color-${resolvedColor}-${primaryShade})`,
+        border: '1px solid transparent',
+      }
+    }
+
+    if (variant === 'transparent') {
+      return {
+        background: 'transparent',
+        hover: 'transparent',
+        color:
+          resolvedColor === 'gray'
+            ? 'var(--mantine-color-dark-6)'
+            : `var(--mantine-color-${resolvedColor}-${primaryShade})`,
+        hoverColor:
+          resolvedColor === 'gray'
+            ? 'var(--mantine-color-dark-6)'
+            : `var(--mantine-color-${resolvedColor}-${primaryShade})`,
+        border: '1px solid transparent',
+      }
+    }
+
+    return defaultResolvedColors
+  },
   defaultRadius: 'md',
   spacing: {
     xs: '0.625rem',
@@ -95,22 +151,14 @@ export const theme = createTheme({
     },
     Badge: {
       defaultProps: {
+        fw: 600,
         variant: 'light',
         tt: 'unset',
       },
-      styles: (theme: MantineTheme, props: BadgeProps) => ({
-        root: {
-          fontWeight: 600,
-          ...(props.color === 'gray'
-            ? {
-                color: theme.colors.dark[6],
-              }
-            : {}),
-        },
-      }),
     },
     ThemeIcon: {
       defaultProps: {
+        color: 'indigo',
         radius: 'md',
       },
     },

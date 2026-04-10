@@ -1,0 +1,14 @@
+.patient-details-tabs .mantine-Tabs-list {
+  gap: var(--mantine-spacing-xl);
+}
+
+.patient-details-tabs .mantine-Tabs-tab {
+  padding-inline: 0;
+  font-weight: 600;
+  color: var(--mantine-color-dark-6);
+}
+
+.patient-details-tabs .mantine-Tabs-tab[data-active],
+.patient-details-tabs .mantine-Tabs-tab[data-active]:hover {
+  color: var(--mantine-color-indigo-8);
+}

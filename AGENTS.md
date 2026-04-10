@@ -102,10 +102,16 @@ Follow the existing project patterns before introducing new abstractions or new 
 - If a layout or styling pattern starts repeating across screens, extract it into the theme or a shared component rather than duplicating local styles.
 - Treat indigo as the primary action color; prefer neutral `default` or gray-based treatments for secondary actions, informational badges, and decorative accents unless a semantic status color is required.
 - Prefer extending Mantine component defaults in `src/theme/theme.tsx` for repeated visual decisions on `Button`, `ActionIcon`, `Badge`, `ThemeIcon`, `Tabs`, and similar primitives before adding local overrides in pages or components.
+- Prefer Mantine's exposed props in `defaultProps` such as `fw`, `tt`, `radius`, `variant`, `size`, and similar before reaching for `styles`; use `styles` only when the visual rule cannot be expressed with component props.
+- Prefer defining repeated avatar placeholder treatments in `src/theme/theme.tsx` so initials-based avatars inherit the same background and foreground contrast by default and only use local overrides for true exceptions.
+- Prefer `Badge` light variants to use a soft surface from shade `0` and a stronger foreground from the active color scale, instead of relying on arbitrary local tint combinations.
+- Prefer fixing repeated `light` and `subtle` color behavior through Mantine's global `variantColorResolver` in `src/theme/theme.tsx` when the project expects a stable surface/foreground pairing across components.
+- Prefer `ThemeIcon` to inherit the system primary color by default, and make `transparent` use the strong foreground tone from the active color scale instead of Mantine's softer default when visual coherence requires it.
 - Treat the sidebar and left brand area as a branded layout zone with its own visual rules: keep the base surface neutral, reserve indigo for brand and active navigation state, and avoid using generic tinted button fills for secondary sidebar actions.
 - In the sidebar profile block, make the avatar and profile CTA mirror the active navigation treatment exactly: soft indigo background, indigo foreground, and no neutral text treatment on those highlighted elements.
 - In the sidebar navigation, inactive items must keep neutral text with transparent background, switch only to a soft gray background on hover, and active items must use the same soft indigo background and stronger indigo text as the profile CTA without changing on hover.
 - When a visual treatment is exclusive to a specific layout zone, implement it with explicit, scoped class names tied to that area and avoid relying on generic `.mantine-*` selectors unless the intent is truly global.
+- If Mantine component state styles such as active or hover do not override reliably through inline `styles`, prefer a scoped module or layout CSS class that targets Mantine selectors only within that local area instead of escalating inline specificity.
 
 ## Forms and validation
 

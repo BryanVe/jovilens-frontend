@@ -5,17 +5,7 @@ export const MyProfile = () => {
   return (
     <Stack p="md">
       <Group>
-        <Avatar
-          styles={(theme) => ({
-            placeholder: {
-              backgroundColor: theme.colors.indigo[0],
-              color: theme.colors.indigo[8],
-              fontWeight: 600,
-            },
-          })}
-        >
-          BV
-        </Avatar>
+        <Avatar color="indigo">BV</Avatar>
         <Stack flex={1} gap={0}>
           <Text fw={600} c="dark">
             Bryan Vera
